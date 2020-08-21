@@ -3,10 +3,9 @@
 
 #define USE_WIFI_NINA         false
 
-#include <WiFiWebServer.h>
-#include <WiFi.h>
-
 #include <Husarnet.h>
+#include <WebServer.h>
+#include <WiFi.h>
 
 #if __has_include("credentials.h")
 #include "credentials.h"
@@ -34,7 +33,7 @@ static auto hiRes = esp32cam::Resolution::find(320, 240);
 const uint8_t jpgqal = 80;
 const uint8_t fps = 10;    //sets minimum delay between frames, HW limits of ESP32 allows about 12fps @ 800x600
 
-WiFiWebServer server(8000);
+WebServer server(8000);
 
 void handleMjpeg()
 {
